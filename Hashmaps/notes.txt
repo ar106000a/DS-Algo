@@ -24,3 +24,26 @@ But there is another problem, ascii of 'a' is 97, and ascioi of 'z' is 122, so t
     index of b = ascii of b - 97 = 1;
 
 So we ll have exactl 26 size hashArray.
+
+
+Map Complexities in C++
+map (Ordered Map):
+
+Time Complexity: All operations (storing and fetching) take O(log n) in the best, average, and worst cases.
+
+Behavior: It maintains elements in a sorted order based on the key.
+
+unordered_map:
+
+Time Complexity: Offers O(1) constant time for storage and fetching in best and average cases.
+Worst Case: Can degrade to O(n) linear time, usually due to internal collisions.
+Usage Tip: Use unordered_map as your default, but switch to map if you encounter Time Limit Exceeded errors.
+
+Division Method & Collisions
+The Division Method:The method is implemented in hash maps when space is limited. We define the map as array of buckets, where one bucket can hold multiple elements often chained through a linked list so there is a chance of having all elements in a single bucket, which may cause the complexity to move to O(N)
+
+Collisions and Chaining: When multiple keys hash to the same index (a collision), a structure needs a way to handle it. The lecture explains linear chaining (using linked lists) as a strategy to store multiple values in a single bucket.
+
+Worst-Case Scenarios : A worst-case O(n) complexity occurs if a poor hash function or specific input causes all keys to collide in the same index, forcing the structure to search through a single, long chain. This is highlighted as a rare but possible event.
+
+Another major difference between ordered and unordered maps is that ordered maps can have keys in the form of any data structure, int,double,long,char etc as well as pair of values like <int,int>. But unordered maps strictly have individual keys only. A pair cannot be a key in unordered map.
