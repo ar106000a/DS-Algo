@@ -1,0 +1,26 @@
+Lets asuume we have an array that looks like this: [1,2,1,3,2]
+If we are asked to write a code that outputs the frequency of every element in the array, for it , the bruteforce approach ll be to loop through array for each specific element and tracking the count through a variable count. 
+
+But this operational would be very costly, lets say we have m distinct elements, and array size is n, the complexity ll be O(m.n) which ll be too large for large arrays, a better approach is to use hashmaps..
+
+A better approach is Hashing, what is it? Lets answer that!
+Hashing means pre-storing and pre fetching. What it means is , we traverse the array once and increment the occurance of an element in a separate array(hash array)
+Explanation: Suppose we have this array [1,2,3,4,5,6,7,5,4,2,1];
+We ll check for the maximum value in this array, which is 7(this can be taken arbitrarily above the max value too, like 100)
+Next, we ll make the hash array of size 100, and while looping through the main array, we see at index[0] a 1, so we ll incrememnt the index[1] of hash array to contain 1(the number of times 1 occurs), and so on...Lets look at the implementation...
+
+Problem: If we have an array of size 13, but one element inside it holds the value 10 raised to power 9...Will we make a hashmap of size 10 to power 9 + 1? No, it would be insufficient and had an implementation limitation, max array size is 10 raised to power 6.... How are we gonna solve this? Lets see...
+(answer in the end somewhere)
+Okay, so an insight gave us following results:
+In linux environments, the max size of stack is 8MB, in windows its 1MB, that is the reason, on windows, we can only declare max int array of 100000 in main, and 1000000 globally. While in Linux, we can declare int array of 1000000 in main, and 10000000 globally.
+
+Hash-maps solve this problem for us, unlimited size, and no reserved indexes, it generates the keyValue pairs on demand and stores as <value,frequency> mapping, so even if max element is 1000 but size is 5, map ll hold only 5(if all 5 are distinct) pairs. 
+
+
+Character hashing, we do the same thing, instantiate a hash array of size 26(considering our string only contains lowercase letters), then we ll map the hashArray indexes to ASCII character values, and then do the process as intended in the previous section.
+
+But there is another problem, ascii of 'a' is 97, and ascioi of 'z' is 122, so to correspond it to hashArray we ll need to initialize it to size 123, which ll be inefficient because 96 indexes ll be reserved for nothing, so what we ll do is to map every character to its [ascii-97] , for example;
+    index of a = ascii of a - 97 = 0;
+    index of b = ascii of b - 97 = 1;
+
+So we ll have exactl 26 size hashArray.
