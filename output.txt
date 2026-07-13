@@ -1,16 +1,5 @@
-Swapping 34 with 643
-Swapping 34 with 54
-Swapping 5 with 643
-Swapping 5 with 54
-Swapping 5 with 34
-Swapping 543 with 643
-Swapping 453 with 643
-Swapping 453 with 543
-Swapping 543 with 643
 5
-34
-54
-453
-543
-543
-643
+65
+343
+345
+435
