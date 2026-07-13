@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/ali/Vacs/LMS/DS-Algo/Recursion/multipleRecursionCalls'
+relocations:     []
+...
