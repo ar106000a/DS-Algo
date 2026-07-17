@@ -1,56 +1,140 @@
-//this sort technique works on Divide and merge scenario. We divide the array into 2 hypothetical subarrays. We, then take those subarrays, sort them and merge them.
+// //this sort technique works on Divide and merge scenario. We divide the array into 2 hypothetical subarrays. We, then take those subarrays, sort them and merge them.
+
+// #include<iostream>
+// #include<string>
+// #include<algorithm>
+// #include<vector>
+// using namespace std;
+// void merge(int arr[],int low,int mid,int high){
+//     int left=low;
+//     int right=mid+1;
+//     vector <int> temp;
+//     while(left<=mid && right<=high){
+//         if(arr[left]<=arr[right]){
+//             temp.push_back(arr[left]);
+//             left++;
+//         }else{
+//             temp.push_back(arr[right]);
+//             right++;
+//         }
+        
+//     }
+//     while(left<=mid){
+//         temp.push_back(arr[left]);
+//         left++;
+//     }
+//     while(right<=high){
+//         temp.push_back(arr[right]);
+//         right++;
+//     }
+//     for(int i=low;i<=high;i++){
+//         arr[i]=temp[i-low];
+//     }
+ 
+// }
+
+// void mergeSort(int arr[],int low, int high){
+//     if(low>=high){
+//         return;
+//     }
+    
+//     int mid=(low+high)/2;
+//     mergeSort(arr,low,mid);
+//     mergeSort(arr,mid+1,high
+//     );
+//     merge(arr,low,mid,high);
+    
+// }
+
+// int main(){
+//     int arr[5]={65,345,435,5,343};
+//     mergeSort(arr,0,4);
+//     for(int i=0;i<5;i++){
+//         cout<<arr[i]<<endl;
+//     }
+//     return 0;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #include<iostream>
 #include<string>
-#include<algorithm>
 #include<vector>
+#include<algorithm>
 using namespace std;
-void merge(int arr[],int low,int mid,int high){
-    int left=low;
-    int right=mid+1;
-    vector <int> temp;
-    while(left<=mid && right<=high){
-        if(arr[left]<=arr[right]){
-            temp.push_back(arr[left]);
-            left++;
+
+
+void merge(int arr[], int left, int mid, int right){
+    int pointerLeft=left;
+    int pointerRight=mid+1;
+    vector<int> temp;
+
+
+    while(pointerLeft<=mid && pointerRight<=right){
+        if(arr[pointerLeft]<=arr[pointerRight]){
+            temp.push_back(arr[pointerLeft]);
+            pointerLeft++;
         }else{
-            temp.push_back(arr[right]);
-            right++;
+            temp.push_back(arr[pointerRight]);
+            pointerRight++;
         }
-        
     }
-    while(left<=mid){
-        temp.push_back(arr[left]);
-        left++;
+    while(pointerLeft<=mid){
+        temp.push_back(arr[pointerLeft]);
+        pointerLeft++;
     }
-    while(right<=high){
-        temp.push_back(arr[right]);
-        right++;
+    while(pointerRight<=right){
+        temp.push_back(arr[pointerRight]);
+        pointerRight++;
     }
-    for(int i=low;i<=high;i++){
-        arr[i]=temp[i-low];
-    }
- 
-}
 
-void mergeSort(int arr[],int low, int high){
-    if(low>=high){
-        return;
+    for(int i =left;i<=right;i++){
+        arr[i]=temp[i-left];
     }
-    
-    int mid=(low+high)/2;
-    mergeSort(arr,low,mid);
-    mergeSort(arr,mid+1,high
-    );
-    merge(arr,low,mid,high);
-    
-}
 
+}
+void mergeSort(int arr[] ,int left, int right){
+    if(left>=right){
+        return ;
+    }
+    int mid= (left+right)/2;
+    mergeSort(arr,left,mid);
+    mergeSort(arr,mid+1,right);
+    merge(arr,left,mid,right);
+}
 int main(){
-    int arr[5]={65,345,435,5,343};
-    mergeSort(arr,0,4);
-    for(int i=0;i<5;i++){
+    int arr[4]= {43,32,21,43};
+    
+    mergeSort(arr, 0, 3);
+
+    for(int i=0;i<4;i++){
         cout<<arr[i]<<endl;
     }
     return 0;
 }
+
