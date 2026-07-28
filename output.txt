@@ -1,8 +1,1 @@
-30
-4
-5
-3
-0
-0
-0
-0
+Longest subarray with sum K is of length 2
