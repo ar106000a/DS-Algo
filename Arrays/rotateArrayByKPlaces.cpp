@@ -63,17 +63,17 @@ void kOptRightRotate(int arr[],int size, int k){
             int temp=arr[i];
             arr[i]=arr[k-i-1];
             arr[k-i-1]=temp;
-        }
-        for(int i=k;i<(k+(size-k)/2);i++){
+    }
+    for(int i=k;i<(k+(size-k)/2);i++){
             int temp=arr[i];
             arr[i]=arr[size+k-i-1];
             arr[size+k-i-1]=temp;
-        }
-        for(int i=0;i<(size/2);i++){
+    }
+    for(int i=0;i<(size/2);i++){
             int temp=arr[i];
             arr[i]=arr[size-i-1];
             arr[size-i-1]=temp;
-        }
+    }
 }
 int main(){
     // int arr[5]={3,4,5,6,7};

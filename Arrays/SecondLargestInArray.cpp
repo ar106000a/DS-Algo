@@ -5,24 +5,27 @@
 
 using namespace std;
 
-int findSecondLargest(int arr[],int size){
-    int largest=arr[0];
+int findSecondLargest(vector<int>& nums,int size){
+    if(size<2){
+        return -1;
+    }
+    int largest=nums[0];
     int sLargest=INT_MIN;
     for(int i=0;i<size;i++){
-        if(arr[i]>largest){
+        if(nums[i]>largest){
             sLargest=largest;
-            largest=arr[i];
-        }else if(arr[i]>sLargest){
-            sLargest=arr[i];
+            largest=nums[i];
+        }else if(nums[i]>sLargest && nums[i]<largest){
+            sLargest=nums[i];
         }
 
 
     }
-    return sLargest;
+    return sLargest==INT_MIN?-1:sLargest;
 }
 int main(){
-    int arr[6]={32,564,68,23,98,78};
-    int n=sizeof(arr)/sizeof(arr[0]);
+    vector<int> arr={10,10,10,11};
+    int n=arr.size();
 
     int secondLargest=findSecondLargest(arr,n);
     cout<<"Second Largest element is: "<<secondLargest<<endl;

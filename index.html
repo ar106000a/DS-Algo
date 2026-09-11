@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <sentinel-auth-flow id="authFlow"></sentinel-auth-flow>
+
+    <script type="module">
+      import  SentinelAuth  from "./node_modules/@sentinelauth/sdk/dist/index.js";
+
+      const sdk = new SentinelAuth({
+        apiUrl: "http://localhost:3000",
+        apiKey: "your-api-key"
+      });
+
+      const el = document.getElementById("authFlow");
+      el.setSdk(sdk);
+
+      el.addEventListener("sentinel-auth-complete", (event) => {
+        const result = event.detail;
+        console.log("Login complete:", result);
+        // redirect, store token, do UI stuff
+      });
+    </script>
+  </body>
+</html>
