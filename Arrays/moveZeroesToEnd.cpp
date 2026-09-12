@@ -31,6 +31,7 @@ void moveZeroesOptim(int arr[],int size){
         for(int i=0;i<size;i++){
             if(arr[scanner]!=0){
                 arr[writer]=arr[scanner];
+                arr[scanner]=0;
                 writer++;
                 scanner++;
             }
@@ -38,14 +39,14 @@ void moveZeroesOptim(int arr[],int size){
                 scanner++;
             }
         }
-        for(int i=writer;i<size;i++){
-            arr[i]=0;
-        }
+        // for(int i=writer;i<size;i++){
+        //     arr[i]=0;
+        // }
 }
 int main(){
     int arr[8]={0,30,0,04,5,0,0,3};
     // moveZeroes(arr,8);
-    moveZeroes(arr,8);
+    moveZeroesOptim(arr,8);
     for(int i=0;i<8;i++){
         cout<<arr[i]<<endl;
     }
